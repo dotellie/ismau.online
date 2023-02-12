@@ -10,10 +10,7 @@ export function PageSpin({ isMauOnline }: { isMauOnline: boolean }) {
     const [rotate, setRotate] = useState(false);
 
     const animate = () => {
-        // Button begins to shake
         setRotate(true);
-
-        //
         setTimeout(() => setRotate(false), 10000);
     };
 

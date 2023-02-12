@@ -2,6 +2,7 @@
   --clr-bg: #f5f5f5;
   --clr-fg: #333;
   --clr-green-rgb: 89, 211, 99;
+  --clr-red-rgb: 236, 59, 59;
 }
 
 @media (prefers-color-scheme: dark) {
