@@ -12,8 +12,19 @@
     text-transform: uppercase;
     transform: rotate(0deg);
     transition: transform 1.2s;
-    padding: 10vw;
     cursor: default;
+}
+
+@media screen and (orientation: landscape) {
+    .title {
+        padding-bottom: 9vw;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .title {
+        padding-bottom: 9vh;
+    }
 }
 
 .title:hover {
@@ -24,21 +35,17 @@
 .blob {
     --blob-color: var(--clr-red-rgb);
 
-
     background: rgb(var(--blob-color));
     border-radius: 50%;
     margin: 20px;
-    height: 20vh;
-    width: 20vh;
 
     box-shadow: 0 0 0 0 rgba(var(--blob-color), 1);
     transform: scale(1);
-    animation: pulse 2s infinite;
 
     display: grid;
     place-items: center;
 
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: var(--clr-fg);
     text-transform: uppercase;
 
@@ -47,12 +54,29 @@
     cursor: pointer;
 }
 
+@media screen and (orientation: landscape) {
+    .blob {
+        height: 20vw;
+        width: 20vw;
+        animation: pulse-landscape 2s infinite;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .blob {
+        height: 20vh;
+        width: 20vh;
+        animation: pulse-portrait 2s infinite;
+    }
+}
+
 .blob[data-online] {
     --blob-color: var(--clr-green-rgb);
     color: var(--clr-bg);
 }
 
-@keyframes pulse {
+/* Currently making a unique animation for landscape and portrait */
+@keyframes pulse-landscape {
     0% {
         transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(var(--blob-color), 0.7);
@@ -61,6 +85,23 @@
     70% {
         transform: scale(1);
         box-shadow: 0 0 0 10vw rgba(var(--blob-color), 0);
+    }
+
+    100% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(var(--blob-color), 0);
+    }
+}
+
+@keyframes pulse-portrait {
+    0% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(var(--blob-color), 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10vh rgba(var(--blob-color), 0);
     }
 
     100% {
