@@ -8,7 +8,9 @@ export default async function Home() {
     throw new Error("HEARTBEAT_URL is not set");
   }
 
-  const heartbeatRes = await fetch(process.env.HEARTBEAT_URL);
+  const heartbeatRes = await fetch(process.env.HEARTBEAT_URL, {
+    next: { revalidate: 10 },
+  });
   const heartbeat = (await heartbeatRes.json()) as {
     heartbeatList: Record<
       string,
