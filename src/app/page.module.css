@@ -45,7 +45,7 @@
     display: grid;
     place-items: center;
 
-    font-size: 1.7rem;
+
     color: var(--clr-fg);
     text-transform: uppercase;
 
@@ -58,6 +58,7 @@
     .blob {
         height: 20vw;
         width: 20vw;
+        font-size: 3vw;
         animation: pulse-landscape 2s infinite;
     }
 }
@@ -66,6 +67,7 @@
     .blob {
         height: 20vh;
         width: 20vh;
+        font-size: 3vh;
         animation: pulse-portrait 2s infinite;
     }
 }
