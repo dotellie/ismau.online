@@ -1,154 +1,125 @@
 .main {
-    display: grid;
-    place-items: center;
-    align-content: center;
-    padding: 1rem;
-    min-height: 100vh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  padding: 1rem;
+  min-height: 100vh;
+  gap: 9vmax;
 }
 
 /* Makes the title rotate on hover */
 .title {
-    font-size: 3rem;
-    text-transform: uppercase;
-    transform: rotate(0deg);
-    transition: transform 1.2s;
-    cursor: default;
-}
-
-@media screen and (orientation: landscape) {
-    .title {
-        padding-bottom: 9vw;
-    }
-}
-
-@media screen and (orientation: portrait) {
-    .title {
-        padding-bottom: 9vh;
-    }
+  font-size: 5vmax;
+  transform: rotate(0deg);
+  transition: transform 1.2s;
+  cursor: default;
+  position: relative;
 }
 
 .title:hover {
-    transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  margin: auto;
+  transition: inherit;
+}
+
+.title:hover::after {
+  transform: rotate(-360deg);
 }
 
 /* Makes the blob pulse on hover */
 .blob {
-    --blob-color: var(--clr-red-rgb);
+  --blob-color: var(--clr-red-rgb);
+  color: var(--clr-white);
 
-    background: rgb(var(--blob-color));
-    border-radius: 50%;
-    margin: 20px;
+  background: rgb(var(--blob-color));
+  border-radius: 50%;
+  margin: 20px;
 
-    box-shadow: 0 0 0 0 rgba(var(--blob-color), 1);
-    transform: scale(1);
+  box-shadow: 0 0 0 0 rgba(var(--blob-color), 1);
+  transform: scale(1);
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
+  text-transform: uppercase;
 
-    color: var(--clr-fg);
-    text-transform: uppercase;
+  border: none;
 
-    border: none;
+  cursor: pointer;
 
-    cursor: pointer;
-}
-
-@media screen and (orientation: landscape) {
-    .blob {
-        height: 20vw;
-        width: 20vw;
-        font-size: 3vw;
-        animation: pulse-landscape 2s infinite;
-    }
-}
-
-@media screen and (orientation: portrait) {
-    .blob {
-        height: 20vh;
-        width: 20vh;
-        font-size: 3vh;
-        animation: pulse-portrait 2s infinite;
-    }
+  height: 20vmax;
+  width: 20vmax;
+  font-size: 3vmax;
+  animation: pulse 2s infinite;
 }
 
 .blob[data-online] {
-    --blob-color: var(--clr-green-rgb);
-    color: var(--clr-bg);
+  --blob-color: var(--clr-green-rgb);
+  color: var(--clr-black);
 }
 
-/* Currently making a unique animation for landscape and portrait */
-@keyframes pulse-landscape {
-    0% {
-        transform: scale(0.9);
-        box-shadow: 0 0 0 0 rgba(var(--blob-color), 0.7);
-    }
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(var(--blob-color), 0.7);
+  }
 
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 10vw rgba(var(--blob-color), 0);
-    }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10vmax rgba(var(--blob-color), 0);
+  }
 
-    100% {
-        transform: scale(0.9);
-        box-shadow: 0 0 0 0 rgba(var(--blob-color), 0);
-    }
-}
-
-@keyframes pulse-portrait {
-    0% {
-        transform: scale(0.9);
-        box-shadow: 0 0 0 0 rgba(var(--blob-color), 0.7);
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 10vh rgba(var(--blob-color), 0);
-    }
-
-    100% {
-        transform: scale(0.9);
-        box-shadow: 0 0 0 0 rgba(var(--blob-color), 0);
-    }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(var(--blob-color), 0);
+  }
 }
 
 /* Spins the html element on blob click */
 .rotate {
-    animation: shake 1s infinite;
+  animation: shake 1s infinite;
 }
 
 @keyframes shake {
-    0% {
-        transform: translate(2px, 1px) rotate(0deg);
-    }
-    10% {
-        transform: translate(-1px, -2px) rotate(-2deg);
-    }
-    20% {
-        transform: translate(-3px, 0px) rotate(3deg);
-    }
-    30% {
-        transform: translate(0px, 2px) rotate(0deg);
-    }
-    40% {
-        transform: translate(1px, -1px) rotate(1deg);
-    }
-    50% {
-        transform: translate(-1px, 2px) rotate(-1deg);
-    }
-    60% {
-        transform: translate(-3px, 1px) rotate(0deg);
-    }
-    70% {
-        transform: translate(2px, 1px) rotate(-2deg);
-    }
-    80% {
-        transform: translate(-1px, -1px) rotate(4deg);
-    }
-    90% {
-        transform: translate(2px, 2px) rotate(0deg);
-    }
-    100% {
-        transform: translate(1px, -2px) rotate(-1deg);
-    }
+  0% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-2deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(3deg);
+  }
+  30% {
+    transform: translate(0px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(2px, 1px) rotate(-2deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(4deg);
+  }
+  90% {
+    transform: translate(2px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }

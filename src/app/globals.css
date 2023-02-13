@@ -1,6 +1,9 @@
 :root {
-  --clr-bg: #f5f5f5;
-  --clr-fg: #333;
+  --clr-black: #333;
+  --clr-white: #f5f5f5;
+
+  --clr-bg: var(--clr-white);
+  --clr-fg: var(--clr-black);
   --clr-green-rgb: 89, 211, 99;
   --clr-red-rgb: 236, 59, 59;
 }
@@ -11,8 +14,8 @@
   }
 
   :root {
-    --clr-bg: #333;
-    --clr-fg: #f5f5f5;
+    --clr-bg: var(--clr-black);
+    --clr-fg: var(--clr-white);
   }
 }
 
