@@ -37,3 +37,7 @@ body {
   color: var(--clr-fg);
   background: var(--clr-bg);
 }
+
+a {
+  color: inherit;
+}
